@@ -1,0 +1,66 @@
+# Maven
+/target/
+**/target/
+dependency-reduced-pom.xml
+release.properties
+pom.xml.tag
+pom.xml.releaseBackup
+pom.xml.versionsBackup
+pom.xml.next
+buildNumber.properties
+
+# Keep Maven Wrapper files in repo
+/.mvn/
+/.mvn/wrapper/maven-wrapper.jar
+!/mvnw
+!/mvnw.cmd
+!/.mvn/wrapper/maven-wrapper.properties
+
+# Compiled class files
+*.class
+
+# Logs
+*.log
+hs_err_pid*
+replay_pid*
+
+# IDEs - IntelliJ
+/.idea/
+/*.iml
+*.iws
+/out/
+
+# Eclipse
+.classpath
+.project
+.settings/
+.recommenders/
+
+# NetBeans
+/nbproject/private/
+/nbbuild/
+/dist/
+/.nb-gradle/
+
+# VS Code
+.vscode/
+
+# OS files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Temp / editor
+*.tmp
+*.swp
+*~
+*.bak
+
+# Build tools / other
+.gradle/
+build/
+
+# Sensitive / local config
+.env
+.env.local
+local.properties
