@@ -5,6 +5,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import io.github.bonigarcia.wdm.WebDriverManager;
+import utils.ConfigLoader;
 
 public class BaseTest {
 
@@ -21,8 +22,8 @@ public class BaseTest {
 
         //Basic config
         driver.manage().window().maximize();
-        // Optional: Add wait  implícit if necessary, but avoid in begin for force wait explícits
-        // driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+
+        driver.get(ConfigLoader.getProperty("app.url"));
     }
 
     @AfterMethod

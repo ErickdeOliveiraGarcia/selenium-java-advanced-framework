@@ -32,7 +32,20 @@ public class LoginPage {
         driver.findElement(loginButton).click();
     }
 
-    public String getErrorMessage() {
+
+    public void clickLoginButton() {
+        driver.findElement(loginButton).click();
+    }
+
+    public InventoryPage login(String username, String password) {
+      enterUsername(username);
+      enterPassword(password);
+      clickLoginButton();
+
+      //Returns the next expect Page Object sucessful login
+        return new InventoryPage(driver);
+    }
+    public String getErrorMessage(){
         return driver.findElement(errorMessageContainer).getText();
     }
 }
