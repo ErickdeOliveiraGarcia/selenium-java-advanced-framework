@@ -1,0 +1,11 @@
+<!-- file: testng.xml -->
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="SeleniumSuite" parallel="false">
+    <test name="RegressionTests">
+        <classes>
+            <class name="tests.LoginTest"/>
+            <!-- adicionar outras classes de teste conforme necessário -->
+        </classes>
+    </test>
+</suite>
