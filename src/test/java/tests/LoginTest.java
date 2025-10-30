@@ -16,7 +16,6 @@ public class LoginTest extends BaseTest {
 
     @Test
     public void testSuccessfulLogin() {
-        //Use the object 'driver' initialized in BaseTest
         LoginPage loginPage = new LoginPage(driver);
 
         loginPage.login("standard_user","secret_sauce");
@@ -38,7 +37,10 @@ public class LoginTest extends BaseTest {
         String errorMessage = loginPage.getErrorMessage();
         System.out.println("Error Message: " + errorMessage);
 
+        String expected = "Epic sadface: Username and password do not match any user in this service";
+        // Use assertEquals on trimmed text for a deterministic check
         Assert.assertTrue(errorMessage.contains("Epic sadface: Username and password do not match any user in this service"), "The error message is not as expected");
+
     }
 
 }

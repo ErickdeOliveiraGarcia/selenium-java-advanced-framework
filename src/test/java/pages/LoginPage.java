@@ -3,49 +3,56 @@ package pages;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
 
-public class LoginPage {
-
-    private WebDriver driver;
+public class LoginPage extends PageFactoryBase{
 
     //Define Locators
-    private final By usernameInput = By.id("user-name");
-    private final By passwordInput = By.id("password");
-    private final By loginButton = By.id("login-button");
-    private final By errorMessageContainer = By.cssSelector("div.error-message-container");
+    @FindBy(id = "user-name")
+    private WebElement usernameInput;
 
-    //Constructor
+    @FindBy(id = "password")
+    private  WebElement passwordInput;
+
+    @FindBy(id = "login-button")
+    private WebElement loginButton;
+
+    @FindBy(css = "div.error-message-container")
+    private WebElement errorMessageContainer;
+
+
+    //Constructor calls the parent constructor which handle PageFactory initialization
     public LoginPage(WebDriver driver) {
-        this.driver = driver;
+        super(driver);
     }
 
     //Interaction Methods
     public void enterUsername(String username) {
-        driver.findElement(usernameInput).sendKeys(username);
+        // No need for driver.findElement() anymore, just use the initialized field
+        usernameInput.sendKeys(username);
     }
 
     public void enterPassword(String password) {
-        driver.findElement(passwordInput).sendKeys(password);
+        passwordInput.sendKeys(password);
     }
-
-    public void clickLogin() {
-        driver.findElement(loginButton).click();
-    }
-
 
     public void clickLoginButton() {
-        driver.findElement(loginButton).click();
+        // Use the inherited waitUtils object
+        waitUtils.waitForElementToBeClickable(By.id("login-button"), 10).click();
+
     }
 
-    public InventoryPage login(String username, String password) {
+    public void login(String username, String password) {
       enterUsername(username);
       enterPassword(password);
       clickLoginButton();
 
-      //Returns the next expect Page Object sucessful login
-        return new InventoryPage(driver);
     }
-    public String getErrorMessage(){
-        return driver.findElement(errorMessageContainer).getText();
+
+    public String getErrorMessage() {
+        waitUtils.waitForElementToBeVisible(By.cssSelector("div.error-message-container"), 5);
+        return errorMessageContainer.getText();
     }
+
 }
