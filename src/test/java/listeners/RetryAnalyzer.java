@@ -1,9 +1,7 @@
-package utils;
+package listeners; // Ensure this package matches your structure
 
 import org.testng.IRetryAnalyzer;
 import org.testng.ITestResult;
-
-// You should integrate the Log4j2 Logger here as well for better reporting
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -17,9 +15,10 @@ public class RetryAnalyzer implements IRetryAnalyzer {
     public boolean retry(ITestResult result) {
         if (counter < MAX_RETRY_COUNT) {
             counter++;
-            logger.warn("Retrying test method " + result.getName() + " for the " + counter + " time.");
+            logger.warn("Retrying test method [" + result.getName() +
+                    "] for the " + counter + " time. Test Status: " + result.getStatus());
             return true; // Re-run the test
         }
-        return false; // Do not re-run
+        return false; // Stop retrying
     }
 }
