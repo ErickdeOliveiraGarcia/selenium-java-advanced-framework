@@ -6,10 +6,13 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import io.github.bonigarcia.wdm.WebDriverManager;
+import org.testng.annotations.Listeners;
+import utils.AnnotationTransformer;
 import utils.ConfigLoader;
 import org.apache.logging.log4j.Logger;
 import org.apache.logging.log4j.LogManager;
 
+@Listeners({AnnotationTransformer.class}) // usar o pacote correto; adicione TestListener.class se você criar essa classe
 public class BaseTest {
 
     private static final Logger logger = LogManager.getLogger(BaseTest.class.getName());
