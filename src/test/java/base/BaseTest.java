@@ -12,7 +12,7 @@ import utils.ConfigLoader;
 import org.apache.logging.log4j.Logger;
 import org.apache.logging.log4j.LogManager;
 
-@Listeners({AnnotationTransformer.class}) // usar o pacote correto; adicione TestListener.class se você criar essa classe
+@Listeners({AnnotationTransformer.class}) //Register the listener for retry logic
 public class BaseTest {
 
     private static final Logger logger = LogManager.getLogger(BaseTest.class.getName());
@@ -22,7 +22,7 @@ public class BaseTest {
 
     @BeforeMethod
     public void setup() {
-        logger.info("Setup start: configuration WebDriver and navigate fro application");
+        logger.info("Setup start: configuration WebDriver and navigate for application");
 
         //Configure WebDriverManager for Chrome driver download and setup.
         WebDriverManager.chromedriver().setup();
