@@ -11,7 +11,7 @@ public class LoginTest extends BaseTest {
     public void testTittleValid() {
         LoginPage loginPage = new LoginPage(driver);
         String pageTitle = driver.getTitle();
-        Assert.assertEquals(pageTitle, "Swag Labs", "The title of this page does not match the expected value.");
+        Assert.assertEquals(pageTitle, "Swag LabsWERE", "The title of this page does not match the expected value.");
     }
 
     @Test

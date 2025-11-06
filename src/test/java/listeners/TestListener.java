@@ -1,75 +1,45 @@
 
 package listeners;
 
+import base.BaseTest;
 import io.qameta.allure.Attachment;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.testng.ITestListener;
 import org.testng.ITestResult;
-
-import java.lang.reflect.Field;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 public class TestListener implements ITestListener {
 
+    private static final Logger logger = LogManager.getLogger(TestListener.class);
+
     @Override
     public void onTestFailure(ITestResult result) {
-        Object testInstance = result.getInstance();
-        if (testInstance == null) {
-            return;
+        logger.error("Test Failed: " + result.getName(), result.getThrowable());
+
+        Object testClass = result.getInstance();
+        WebDriver driver = null;
+
+        // Use the public getter instead of accessing the protected field directly
+        if (testClass instanceof BaseTest) {
+            driver = ((BaseTest) testClass).getDriver();
         }
 
-        WebDriver driver = extractWebDriver(testInstance);
-        if (driver == null) {
-            return;
+        if (driver != null) {
+            saveScreenshot(driver);
+            logger.info("Screenshot captured and attached for failed test: " + result.getName());
         }
-
-        try {
-            byte[] screenshot = ((TakesScreenshot) driver).getScreenshotAs(OutputType.BYTES);
-            attachScreenshot(screenshot);
-        } catch (Exception ignored) {
-            //fail silently if screenshot capture fails
-        }
-    }
-
-    private WebDriver extractWebDriver(Object testInstance) {
-        Class<?> clazz = testInstance.getClass();
-
-        //find by fields of type WebDriver
-        for (Field field : clazz.getDeclaredFields()) {
-            if (WebDriver.class.isAssignableFrom(field.getType())) {
-                try {
-                    field.setAccessible(true);
-                    Object value = field.get(testInstance);
-                    if (value instanceof WebDriver) {
-                        return (WebDriver) value;
-                    }
-                } catch (IllegalAccessException ignored) {
-                }
-            }
-        }
-
-        //find by common field names
-        String[] commonNames = {"driver", "webDriver"};
-        for (String name : commonNames) {
-            try {
-                Field f = clazz.getDeclaredField(name);
-                if (WebDriver.class.isAssignableFrom(f.getType())) {
-                    f.setAccessible(true);
-                    Object value = f.get(testInstance);
-                    if (value instanceof WebDriver) {
-                        return (WebDriver) value;
-                    }
-                }
-            } catch (NoSuchFieldException | IllegalAccessException ignored) {
-            }
-        }
-
-        return null;
     }
 
     @Attachment(value = "Screenshot on Failure", type = "image/png")
-    private byte[] attachScreenshot(byte[] screenShot) {
-        return screenShot;
+    private byte[] saveScreenshot(WebDriver driver) {
+        return ((TakesScreenshot) driver).getScreenshotAs(OutputType.BYTES);
     }
+
+    @Override public void onTestStart(ITestResult result) { /* not used */ }
+    @Override public void onTestSuccess(ITestResult result) { /* not used */ }
+    @Override public void onTestSkipped(ITestResult result) { /* not used */ }
+    // other ITestListener methods can be added if needed
 }
