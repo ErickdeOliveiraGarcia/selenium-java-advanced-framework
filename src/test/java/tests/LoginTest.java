@@ -11,7 +11,7 @@ public class LoginTest extends BaseTest {
     public void testTittleValid() {
         LoginPage loginPage = new LoginPage(driver);
         String pageTitle = driver.getTitle();
-        Assert.assertEquals(pageTitle, "Swag LabsWERE", "The title of this page does not match the expected value.");
+        Assert.assertEquals(pageTitle, "Swag Labs", "The title of this page does not match the expected value.");
     }
 
     @Test
@@ -25,6 +25,7 @@ public class LoginTest extends BaseTest {
 
         Assert.assertTrue(currrentUrl.contains("/inventory.html"), "The URL does not contain the expected path ");
         //Assert basic the TestNG to check if navigation worked
+        Assert.assertEquals(driver.getTitle(), "WRONG TITLE HERE", "Force failure for screenshot test.");
     }
 
     @Test
