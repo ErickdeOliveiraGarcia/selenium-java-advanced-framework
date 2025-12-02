@@ -1,21 +1,18 @@
+// src/test/java/stepdefs/TestContext.java
+
 package stepdefs;
 
+import org.apache.logging.log4j.Logger; // Crucial Import!
 import org.openqa.selenium.WebDriver;
 import pages.LoginPage;
-// IMPORT the Log4j2 Logger class
-import org.apache.logging.log4j.Logger;
 
-// This class holds shared state
 public class TestContext {
 
     public WebDriver driver;
     public LoginPage loginPage;
+    public Logger logger; // ⬅️ THIS FIELD MUST EXIST
 
-    // 💡 FIX 1: DECLARE the Logger field
-    public Logger logger;
-
-    // The rest of the class remains the same for now...
     public TestContext() {
-        // ...
+        // PicoContainer manages instantiation
     }
 }

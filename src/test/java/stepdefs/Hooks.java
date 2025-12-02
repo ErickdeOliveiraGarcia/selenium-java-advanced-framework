@@ -1,35 +1,37 @@
+// src/test/java/stepdefs/Hooks.java
+
 package stepdefs;
 
 import base.BaseTest;
-import io.cucumber.java.After;
 import io.cucumber.java.Before;
+import io.cucumber.java.After;
+import org.apache.logging.log4j.LogManager;
 import pages.LoginPage;
 
-// This class MUST accept TestContext for DI
 public class Hooks extends BaseTest {
 
     private TestContext context;
 
-    // PicoContainer will instantiate TestContext and inject it here
     public Hooks(TestContext context) {
         this.context = context;
     }
 
     @Before
     public void setupDriver() {
-        // Initialize the driver using the robust setup from BaseTest
+        // 1. Initialize Driver (from BaseTest)
         super.setup();
 
-        // Pass the initialized driver to the shared context
+        // 2. Pass Driver and Page Objects to Context
         this.context.driver = super.driver;
-
-        // Initialize the first Page Object and store it in the context
         this.context.loginPage = new LoginPage(this.context.driver);
+
+        // 3. 💡 CRITICAL FIX: INITIALIZE THE LOGGER
+        // Assign the Log4j2 Logger instance to the context field.
+        this.context.logger = LogManager.getLogger(getClass());
     }
 
     @After
     public void teardownDriver() {
-        // Use the teardown logic from BaseTest
         super.teardown();
     }
 }
