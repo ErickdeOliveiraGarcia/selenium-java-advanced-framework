@@ -16,7 +16,7 @@ import org.apache.logging.log4j.LogManager;
 @Listeners({AnnotationTransformer.class, TestListener.class})
 public class BaseTest {
 
-    private static final Logger logger = LogManager.getLogger(BaseTest.class.getName());
+    protected static final Logger logger = LogManager.getLogger(BaseTest.class.getName());
 
     protected WebDriver driver;
 
