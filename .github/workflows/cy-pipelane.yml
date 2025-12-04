@@ -1,42 +1,42 @@
-# language: yaml
-name: Java CI/CD Pipeline
+  # language: yaml
+  name: Java CI/CD Pipeline
 
-on:
-  push:
-    branches: [ main ] # Triggers the workflow on push to the main branch
+  on:
+    push:
+      branches: [ main ] # Triggers the workflow on push to the main branch
     pull_request:
       branches: [ main ] # Also runs on pull requests
 
-jobs:
-  run-tests:
-    name: Run Tests
-    runs-on: ubuntu-latest
+  jobs:
+    run-tests:
+      name: Run Tests
+      runs-on: ubuntu-latest
 
-    steps:
-      - name: Checkout repository
-        uses: actions/checkout@v4
+      steps:
+        - name: Checkout repository
+          uses: actions/checkout@v4
 
-      - name: Set up JDK 17
-        uses: actions/setup-java@v4
-        with:
-          distribution: 'temurin'
-          java-version: '17'
+        - name: Set up JDK 17
+          uses: actions/setup-java@v4
+          with:
+            distribution: 'temurin'
+            java-version: '17'
 
-      - name: Cache Maven dependencies
-        uses: actions/cache@v4
-        with:
-          path: ~/.m2/repository
-          key: ${{ runner.os }}-maven-${{ hashFiles('**/pom.xml') }}
-          restore-keys: |
-            ${{ runner.os }}-m2-
+        - name: Cache Maven dependencies
+          uses: actions/cache@v4
+          with:
+            path: ~/.m2/repository
+            key: ${{ runner.os }}-maven-${{ hashFiles('**/pom.xml') }}
+            restore-keys: |
+              ${{ runner.os }}-m2-
 
-      - name: Run tests
-        run: mvn -B clean test
+        - name: Run tests
+          run: mvn -B clean test
 
-      - name: Upload Allure results
-        uses: actions/upload-artifact@v4
-        with:
-          name: allure-results
-          path: allure-results
-          if-no-files-found: warn
-          retention-days: 5 # How long to keep the artifact
+        - name: Upload Allure results
+          uses: actions/upload-artifact@v4
+          with:
+            name: allure-results
+            path: allure-results
+            if-no-files-found: warn
+            retention-days: 5 # How long to keep the artifact
