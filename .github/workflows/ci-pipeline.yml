@@ -1,0 +1,70 @@
+# language: yaml
+name: Java CI/CD Pipeline
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+
+jobs:
+  run-tests:
+    name: Run Tests
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up JDK 11
+        uses: actions/setup-java@v4
+        with:
+          distribution: 'temurin'
+          java-version: '11'
+
+      - name: Cache Maven dependencies
+        uses: actions/cache@v4
+        with:
+          path: ~/.m2/repository
+          key: ${{ runner.os }}-maven-${{ hashFiles('**/pom.xml') }}
+          restore-keys: |
+            ${{ runner.os }}-m2-
+
+      - name: Install Chromium and Xvfb
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y chromium-browser xvfb
+
+      - name: Configure display and Chrome binary
+        run: |
+          echo "DISPLAY=:99" >> $GITHUB_ENV
+          echo "CHROME_BIN=/usr/bin/chromium-browser" >> $GITHUB_ENV
+
+      - name: Start Xvfb on :99
+        run: |
+          nohup Xvfb :99 -screen 0 1280x1024x24 >/dev/null 2>&1 & disown
+
+      - name: Wait for Xvfb (sanity)
+        run: sleep 2
+
+      - name: Run Maven tests (Allure results)
+        env:
+          DISPLAY: :99
+          CHROME_BIN: /usr/bin/chromium-browser
+        run: mvn -B -Dallure.results.directory=allure-results clean test
+
+      - name: Upload Allure results
+        uses: actions/upload-artifact@v4
+        with:
+          name: allure-results
+          path: allure-results
+          if-no-files-found: warn
+          retention-days: 5
+
