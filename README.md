@@ -1,6 +1,6 @@
 # Selenium Java Advanced Framework
 
-[![Java CI with Maven](https://github.com/your-username/selenium-java-advanced-framework/actions/workflows/maven.yml/badge.svg)](https://github.com/your-username/selenium-java-advanced-framework/actions/workflows/ci-pipeline.yml)
+[![Java CI with Maven](https://github.com/ErickdeOliveiraGarcia/selenium-java-advanced-framework/actions/workflows/ci-pipeline.yml/badge.svg)](https://github.com/ErickdeOliveiraGarcia/selenium-java-advanced-framework/actions/workflows/ci-pipeline.yml)
 [![Allure Report](https://img.shields.io/badge/Allure-Report-green.svg)](https://your-username.github.io/selenium-java-advanced-framework/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
