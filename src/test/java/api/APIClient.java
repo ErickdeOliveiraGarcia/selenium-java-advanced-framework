@@ -36,7 +36,7 @@ public class APIClient {
 
         // Only add the Authorization header if an API key is found
         if (apiKey != null && !apiKey.isBlank()) {
-            builder.addHeader("x-api-key", apiKey);
+            builder.addHeader("Authorization", "Bearer " + apiKey);
         }
         requestSpec = builder.build();
     }
