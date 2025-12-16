@@ -24,7 +24,7 @@ jobs:
 
       - name: Run tests with API Key
         env:
-          API_KEY: ${{ secrets.reqres_4498e3e762f64cd4aa69d2532f22899b }}
+          API_KEY: ${{ secrets.API_KEY }}
         run: mvn -B clean test
 
       - name: Upload Allure results
