@@ -8,6 +8,33 @@
     <artifactId>selenium-java-framework</artifactId>
     <version>1.0-SNAPSHOT</version>
 
+    <name>Selenium Java Advanced Framework</name>
+    <description>A robust Test Automation Framework for UI and API testing, built with Selenium, Java, and TestNG.</description>
+    <url>https://github.com/your-username/selenium-java-advanced-framework</url>
+
+     <licenses>
+        <license>
+            <name>MIT License</name>
+            <url>http://www.opensource.org/licenses/mit-license.php</url>
+        </license>
+    </licenses>
+
+    <developers>
+        <developer>
+            <name>Erick Garcia</name>
+            <email>erick.garcia.qa@gmail.com</email>
+            <url>https://github.com/ErickdeOliveiraGarcia</url>
+            <organization>LinkedIn</organization>
+            <organizationUrl>https://www.linkedin.com/in/erick-garcia-399b2b161/</organizationUrl>
+        </developer>
+    </developers>
+
+    <scm>
+        <connection>scm:git:git://github.com/your-username/selenium-java-advanced-framework.git</connection>
+        <developerConnection>scm:git:ssh://github.com:your-username/selenium-java-advanced-framework.git</developerConnection>
+        <url>https://github.com/your-username/selenium-java-advanced-framework/tree/main</url>
+    </scm>
+
     <properties>
         <maven.compiler.source>11</maven.compiler.source>
         <maven.compiler.target>11</maven.compiler.target>
@@ -18,10 +45,9 @@
         <slf4j.version>2.0.9</slf4j.version>
         <log4j.version>2.20.0</log4j.version>
         <allure.version>2.21.0</allure.version>
-        <allure.testng.version>2.21.0</allure.testng.version>
         <aspectj.version>1.9.19</aspectj.version>
         <rest-assured.version>5.4.0</rest-assured.version>
-        <com.fasterxml.jackson.core.version>2.6.1</com.fasterxml.jackson.core.version>
+        <jackson.version>2.15.2</jackson.version>
         <lombok.version>1.18.32</lombok.version>
         <cucumber.version>7.15.0</cucumber.version>
 
@@ -72,12 +98,6 @@
             <artifactId>log4j-core</artifactId>
             <version>${log4j.version}</version>
         </dependency>
-        <dependency>
-            <groupId>io.qameta.allure</groupId>
-            <artifactId>allure-testng</artifactId>
-            <version>${allure.version}</version>
-            <scope>test</scope>
-        </dependency>
 
         <dependency>
             <groupId>org.aspectj</groupId>
@@ -103,7 +123,7 @@
         <dependency>
             <groupId>com.fasterxml.jackson.core</groupId>
             <artifactId>jackson-databind</artifactId>
-            <version>${com.fasterxml.jackson.core.version}</version>
+            <version>${jackson.version}</version>
         </dependency>
         <dependency>
             <groupId>org.projectlombok</groupId>
