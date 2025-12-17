@@ -16,7 +16,6 @@ public class CreateUserAPITest extends APIClient {
         //Perform POST Request and map response to POJO
         CreateUserResponse response = given()
                 .spec(requestSpec) //Uses the common configuration
-                .header("x-api-key","reqres-free-v1")
                 .body(requestBody) //RestAssured automatically serializes the POJO to JSON
                 .when()
 

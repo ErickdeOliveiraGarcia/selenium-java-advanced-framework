@@ -1,9 +1,9 @@
-
 package base;
 
 import listeners.TestListener;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import io.github.bonigarcia.wdm.WebDriverManager;
@@ -22,12 +22,17 @@ public class BaseTest {
 
     @BeforeMethod
     public void setup() {
-        logger.info("Setup start: configuration WebDriver and navigate for application");
+        logger.info("Setting up WebDriver...");
+        ChromeOptions options = new ChromeOptions();
+        // Run in headless mode in a CI environment
+        if (System.getenv("CI") != null) {
+            options.addArguments("--headless");
+        }
         WebDriverManager.chromedriver().setup();
-        driver = new ChromeDriver();
+        driver = new ChromeDriver(options);
         driver.manage().window().maximize();
         String url = ConfigLoader.getProperty("app.url");
-        logger.info("Acess URL: {}", url);
+        logger.info("Navigating to URL: {}", url);
         driver.get(url);
     }
 
