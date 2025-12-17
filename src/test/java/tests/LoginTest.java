@@ -25,7 +25,7 @@ public class LoginTest extends BaseTest {
 
         Assert.assertTrue(currrentUrl.contains("/inventory.html"), "The URL does not contain the expected path ");
         //Assert basic the TestNG to check if navigation worked
-        Assert.assertEquals(driver.getTitle(), "WRONG TITLE HERE", "Force failure for screenshot test.");
+        //Assert.assertEquals(driver.getTitle(), "WRONG TITLE HERE", "Force failure for screenshot test.");
     }
 
     @Test
