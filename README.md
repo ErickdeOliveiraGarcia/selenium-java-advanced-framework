@@ -1,4 +1,4 @@
-# Selenium Java Advanced Framework
+# JavaTestMatrix
 
 [![Java CI with Maven](https://github.com/Erick-oGarcia/selenium-java-advanced-framework/actions/workflows/ci-pipelane.yml/badge.svg)](https://github.com/Erick-oGarcia/selenium-java-advanced-framework/actions/workflows/ci-pipeline.yml)
 [![Allure Report](https://img.shields.io/badge/Allure-Report-green.svg)](https://Erick-oGarcia.github.io/selenium-java-advanced-framework/)
