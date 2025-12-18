@@ -141,7 +141,6 @@ This project uses **GitHub Actions** for continuous integration. The workflow is
 ## 🔮 Future Improvements
 
 -   [ ] Integrate with a cloud testing platform (e.g., BrowserStack, Sauce Labs).
--   [ ] Implement visual regression testing.
 -   [ ] Add support for containerized execution with Docker.
 -   [ ] Increase test coverage for API and UI modules.
 
