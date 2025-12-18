@@ -1,7 +1,7 @@
-# Selenium Java Advanced Framework
+# JavaTestMatrix
 
-[![Java CI with Maven](https://github.com/Erick-oGarcia/selenium-java-advanced-framework/actions/workflows/ci-pipelane.yml/badge.svg)](https://github.com/Erick-oGarcia/selenium-java-advanced-framework/actions/workflows/ci-pipeline.yml)
-[![Allure Report](https://img.shields.io/badge/Allure-Report-green.svg)](https://Erick-oGarcia.github.io/selenium-java-advanced-framework/)
+[![Java CI with Maven](https://github.com/Erick-oGarcia/JavaTestMatrix/actions/workflows/ci-pipelane.yml/badge.svg)](https://github.com/Erick-oGarcia/JavaTestMatrix/actions/workflows/ci-pipeline.yml)
+[![Allure Report](https://img.shields.io/badge/Allure-Report-green.svg)](https://Erick-oGarcia.github.io/JavaTestMatrix/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 A robust Test Automation Framework for UI and API testing, built with Selenium, Java, and TestNG. This project demonstrates a scalable and maintainable architecture for enterprise-level test automation.
@@ -32,7 +32,7 @@ A robust Test Automation Framework for UI and API testing, built with Selenium, 
 The framework follows a standard Maven project structure, organized for scalability and clarity:
 
 ```
-selenium-java-advanced-framework/
+JavaTestMatrix/
 │
 ├── pom.xml                # Main Maven file. Defines dependencies, plugins, and how the project is built.
 │
@@ -97,8 +97,8 @@ selenium-java-advanced-framework/
 
 1.  **Clone the repository:**
     ```bash
-    git clone https://github.com/Erick-oGarcia/selenium-java-advanced-framework.git
-    cd selenium-java-advanced-framework
+    git clone https://github.com/Erick-oGarcia/JavaTestMatrix.git
+    cd JavaTestMatrix
     ```
 
 2.  **API Key Configuration (Optional):**
