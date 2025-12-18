@@ -32,7 +32,7 @@ jobs:
 
 
       - name: Generate Allure Report
-        uses: allure-framework/allure-action@v1
+        uses: allure-framework/allure-action@v2
         with:
           results_path: allure-results
           # Generated reports will be stored in the 'allure-report' folder
@@ -41,6 +41,6 @@ jobs:
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v4
         with:
-          github_token: ${{ secrets.API_KEY }}
+          github_token: ${{ secrets.GITHUB_TOKEN }}
 
           publish_dir: ./allure-report
