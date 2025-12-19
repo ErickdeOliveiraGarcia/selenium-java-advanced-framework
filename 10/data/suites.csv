@@ -1,8 +1,0 @@
-"DESCRIPTION","DURATION IN MS","NAME","PARENT SUITE","START TIME","STATUS","STOP TIME","SUB SUITE","SUITE","TEST CLASS","TEST METHOD"
-"","12","testDBConnectionAttempt","Surefire suite","Thu Dec 18 23:45:24 UTC 2025","passed","Thu Dec 18 23:45:24 UTC 2025","tests.DBValidationTest","Surefire test","tests.DBValidationTest","testDBConnectionAttempt"
-"","751","createNewUserAndValidateResponse","Surefire suite","Thu Dec 18 23:45:10 UTC 2025","passed","Thu Dec 18 23:45:11 UTC 2025","api.CreateUserAPITest","Surefire test","api.CreateUserAPITest","createNewUserAndValidateResponse"
-"","8878","Runs Cucumber Scenarios","Surefire suite","Thu Dec 18 23:45:12 UTC 2025","passed","Thu Dec 18 23:45:21 UTC 2025","runner.TestRunner","Surefire test","runner.TestRunner","runScenario"
-"","2745","getUsersListAndValidate","Surefire suite","Thu Dec 18 23:45:07 UTC 2025","passed","Thu Dec 18 23:45:10 UTC 2025","api.UserAPITest","Surefire test","api.UserAPITest","getUsersListAndValidate"
-"","8","testTittleValid","Surefire suite","Thu Dec 18 23:45:23 UTC 2025","passed","Thu Dec 18 23:45:23 UTC 2025","tests.LoginTest","Surefire test","tests.LoginTest","testTittleValid"
-"","250","testSuccessfulLogin","Surefire suite","Thu Dec 18 23:45:22 UTC 2025","passed","Thu Dec 18 23:45:22 UTC 2025","tests.LoginTest","Surefire test","tests.LoginTest","testSuccessfulLogin"
-"","275","testInvalidLogin","Surefire suite","Thu Dec 18 23:45:21 UTC 2025","passed","Thu Dec 18 23:45:22 UTC 2025","tests.LoginTest","Surefire test","tests.LoginTest","testInvalidLogin"
