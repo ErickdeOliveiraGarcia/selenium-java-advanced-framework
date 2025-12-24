@@ -125,7 +125,7 @@ After running the tests, generate and view the Allure report from the project's 
 ```bash
 allure serve allure-results
 ```
-Alternatively, you can access the automatically generated Allure Report via GitHub Pages, which is deployed to the `allure-reports` branch. The link is typically: `https://Erick-oGarcia.github.io/JavaTestMatrix/` (ensure GitHub Pages is configured to serve from the `allure-reports` branch in your repository settings).
+Alternatively, you can access the automatically generated Allure Report via GitHub Pages, which is deployed to the `allure-reports` branch. The link is typically: `https://Erick-oGarcia.github.io/JavaTestMatrix/`
 
 ![Allure Report Screenshot](assets/img.png)
 
